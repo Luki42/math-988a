@@ -1,0 +1,8 @@
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/Line.java
+@@ -181,2 +181,5 @@
+         Vector2D p2 = (Vector2D) point;
++        if (p2 == null) {
++            p2 = Vector2D.ZERO;
++        }
+         return new Vector1D(cos * p2.getX() + sin * p2.getY());
