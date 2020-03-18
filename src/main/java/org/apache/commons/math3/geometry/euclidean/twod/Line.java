@@ -179,7 +179,11 @@ public class Line implements Hyperplane<Euclidean2D>, Embedding<Euclidean2D, Euc
     /** {@inheritDoc} */
     public Vector1D toSubSpace(final Vector<Euclidean2D> point) {
         Vector2D p2 = (Vector2D) point;
-        return new Vector1D(cos * p2.getX() + sin * p2.getY());
+        if (p2 == null) {
+            return new Vector1D(cos * Vector2D.POSITIVE_INFINITY.getX() + sin * Vector2D.POSITIVE_INFINITY.getY());
+        } else {
+            return new Vector1D(cos * p2.getX() + sin * p2.getY());
+        }
     }
 
     /** {@inheritDoc} */
